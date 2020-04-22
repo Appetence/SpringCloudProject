@@ -17,6 +17,7 @@
         <module name="cloud-provider-payment8002" />
         <module name="cloud-provider-payment8001" />
         <module name="cloud-provider-timeserver6001" />
+        <module name="cloud-config-server-3344" />
         <module name="cloud-gateway-getway9527" />
         <module name="cloud-consumer-openfeign80" />
         <module name="cloud-payment-hystrix-defend-9001" />

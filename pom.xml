@@ -21,6 +21,7 @@
       <module>cloud-gateway-getway9527</module>
       <module>cloud-provider-timeserver6001</module>
       <module>cloud-provider-stock5001</module>
+    <module>cloud-config-server-3344</module>
   </modules>
   <packaging>pom</packaging>
   <name>Maven</name>

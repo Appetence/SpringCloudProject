@@ -12,6 +12,9 @@ import reactor.core.publisher.Mono;
 
 import java.lang.annotation.Annotation;
 
+/**
+ * 自定义拦截器，处理拦截请求
+ */
 @Slf4j
 @Component
 public class MyLogGetWayFilter implements GlobalFilter, Ordered {

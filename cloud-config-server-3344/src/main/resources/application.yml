@@ -1,0 +1,26 @@
+server:
+  port: 2233
+spring:
+  application:
+    name: cloud-config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/Appetence/SpringCloudProject.git
+          search-paths:
+            - SpringCloudProject/configFile
+      label: master   #主分支
+      #读取时候规则/{lable}-{name}-{profiles}.yml
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: true
+    service-url:
+      # defaultZone: http://localhost:7001/eureka
+      # 集群版
+      defaultZone: http://eureka7002:7002/eureka,http://eureka7003:7003/eureka
+  instance:
+    instance-id: cloud-config-server2233
+    # 访问路径可以显示ip地址
+    prefer-ip-address: true
