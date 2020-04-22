@@ -9,7 +9,7 @@ spring:
         git:
           uri: https://github.com/Appetence/SpringCloudProject.git
           search-paths:
-            - SpringCloudProject/configFile
+            - SpringCloudProject
       label: master   #主分支
       #读取时候规则/{lable}-{name}-{profiles}.yml
 eureka:

@@ -7,9 +7,9 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/Appetence/SpringCloudProject.git
+          uri: git@github.com/Appetence/SpringCloudProject.git
           search-paths:
-            - SpringCloudProject
+            - SpringCloudProject/configFile
       label: master   #主分支
       #读取时候规则/{lable}-{name}-{profiles}.yml
 eureka:

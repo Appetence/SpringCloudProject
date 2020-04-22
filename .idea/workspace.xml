@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c634755a-d29d-4241-a21a-ddeeb59cdc48" name="Default Changelist" comment="初始化">
-      <change afterPath="$PROJECT_DIR$/cloud-config-server-3344/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cloud-config-server-3344/src/main/java/com/ztx/springcloud/ConfigServer2233.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cloud-config-server-3344/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/configFIle/config-dev.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway-getway9527/src/main/java/com/ztx/springcloud/filter/MyLogGetWayFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway-getway9527/src/main/java/com/ztx/springcloud/filter/MyLogGetWayFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud-gateway-getway9527/target/classes/com/ztx/springcloud/filter/MyLogGetWayFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-gateway-getway9527/target/classes/com/ztx/springcloud/filter/MyLogGetWayFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config-dev.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-config-server-3344/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-config-server-3344/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud-config-server-3344/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud-config-server-3344/target/classes/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
