@@ -12,6 +12,11 @@
     <artifactId>cloud-gateway-getway9527</artifactId>
 
     <dependencies>
+        <!--消息通知 bus- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-bus -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-bus</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-config-client</artifactId>

@@ -3,7 +3,9 @@ server:
 spring:
   cloud:
     config:
-      label: master
-      name: getway
-      profile: dev
-      uri: http://localhost3344
+      label: master  #分支名
+      name: getway  #配置文件名
+      profile: dev  #后缀
+      uri: http://localhost:2233
+#localhost:9527/getprot?username=123测试是否启动成功，需要自己加cookie
+#刷新地址 
