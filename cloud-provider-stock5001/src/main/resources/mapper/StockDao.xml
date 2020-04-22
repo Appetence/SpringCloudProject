@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ztx.springcloud.dao.StockDao">
+
+    <resultMap type="com.ztx.springcloud.entity.Stock" id="StockMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="product" column="product" jdbcType="VARCHAR"/>
+        <result property="img" column="img" jdbcType="VARCHAR"/>
+        <result property="price" column="price" jdbcType="NUMERIC"/>
+        <result property="unit" column="unit" jdbcType="VARCHAR"/>
+        <result property="title" column="title" jdbcType="OTHER"/>
+        <result property="typeId" column="type_id" jdbcType="INTEGER"/>
+        <result property="spec" column="spec" jdbcType="VARCHAR"/>
+        <result property="stock" column="stock" jdbcType="INTEGER"/>
+        <result property="status" column="status" jdbcType="INTEGER"/>
+        <result property="typePid" column="type_pid" jdbcType="INTEGER"/>
+        <result property="productno" column="productNo" jdbcType="VARCHAR"/>
+        <result property="shopsId" column="shops_id" jdbcType="INTEGER"/>
+        <result property="discountFlag" column="discount_flag" jdbcType="INTEGER"/>
+        <result property="tjstatus" column="tjstatus" jdbcType="INTEGER"/>
+        <result property="flag" column="flag" jdbcType="INTEGER"/>
+        <result property="typePpid" column="type_ppid" jdbcType="INTEGER"/>
+        <result property="buyNumber" column="buy_number" jdbcType="INTEGER"/>
+        <result property="content" column="content" jdbcType="OTHER"/>
+        <result property="netweight" column="netWeight" jdbcType="NUMERIC"/>
+        <result property="grossweight" column="grossWeight" jdbcType="NUMERIC"/>
+        <result property="productsimple" column="productSimple" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="StockMap">
+        select
+          id, product, img, price, unit, title, type_id, spec, stock, status, type_pid, productNo, shops_id, discount_flag, tjstatus, flag, type_ppid, buy_number, content, netWeight, grossWeight, productSimple
+        from db2020.stock
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="StockMap">
+        select
+          id, product, img, price, unit, title, type_id, spec, stock, status, type_pid, productNo, shops_id, discount_flag, tjstatus, flag, type_ppid, buy_number, content, netWeight, grossWeight, productSimple
+        from db2020.stock
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="StockMap">
+        select
+          id, product, img, price, unit, title, type_id, spec, stock, status, type_pid, productNo, shops_id, discount_flag, tjstatus, flag, type_ppid, buy_number, content, netWeight, grossWeight, productSimple
+        from db2020.stock
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="product != null and product != ''">
+                and product = #{product}
+            </if>
+            <if test="img != null and img != ''">
+                and img = #{img}
+            </if>
+            <if test="price != null">
+                and price = #{price}
+            </if>
+            <if test="unit != null and unit != ''">
+                and unit = #{unit}
+            </if>
+            <if test="title != null">
+                and title = #{title}
+            </if>
+            <if test="typeId != null">
+                and type_id = #{typeId}
+            </if>
+            <if test="spec != null and spec != ''">
+                and spec = #{spec}
+            </if>
+            <if test="stock != null">
+                and stock = #{stock}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+            <if test="typePid != null">
+                and type_pid = #{typePid}
+            </if>
+            <if test="productno != null and productno != ''">
+                and productNo = #{productno}
+            </if>
+            <if test="shopsId != null">
+                and shops_id = #{shopsId}
+            </if>
+            <if test="discountFlag != null">
+                and discount_flag = #{discountFlag}
+            </if>
+            <if test="tjstatus != null">
+                and tjstatus = #{tjstatus}
+            </if>
+            <if test="flag != null">
+                and flag = #{flag}
+            </if>
+            <if test="typePpid != null">
+                and type_ppid = #{typePpid}
+            </if>
+            <if test="buyNumber != null">
+                and buy_number = #{buyNumber}
+            </if>
+            <if test="content != null">
+                and content = #{content}
+            </if>
+            <if test="netweight != null">
+                and netWeight = #{netweight}
+            </if>
+            <if test="grossweight != null">
+                and grossWeight = #{grossweight}
+            </if>
+            <if test="productsimple != null and productsimple != ''">
+                and productSimple = #{productsimple}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into db2020.stock(product, img, price, unit, title, type_id, spec, stock, status, type_pid, productNo, shops_id, discount_flag, tjstatus, flag, type_ppid, buy_number, content, netWeight, grossWeight, productSimple)
+        values (#{product}, #{img}, #{price}, #{unit}, #{title}, #{typeId}, #{spec}, #{stock}, #{status}, #{typePid}, #{productno}, #{shopsId}, #{discountFlag}, #{tjstatus}, #{flag}, #{typePpid}, #{buyNumber}, #{content}, #{netweight}, #{grossweight}, #{productsimple})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update db2020.stock
+        <set>
+            <if test="product != null and product != ''">
+                product = #{product},
+            </if>
+            <if test="img != null and img != ''">
+                img = #{img},
+            </if>
+            <if test="price != null">
+                price = #{price},
+            </if>
+            <if test="unit != null and unit != ''">
+                unit = #{unit},
+            </if>
+            <if test="title != null">
+                title = #{title},
+            </if>
+            <if test="typeId != null">
+                type_id = #{typeId},
+            </if>
+            <if test="spec != null and spec != ''">
+                spec = #{spec},
+            </if>
+            <if test="stock != null">
+                stock = #{stock},
+            </if>
+            <if test="status != null">
+                status = #{status},
+            </if>
+            <if test="typePid != null">
+                type_pid = #{typePid},
+            </if>
+            <if test="productno != null and productno != ''">
+                productNo = #{productno},
+            </if>
+            <if test="shopsId != null">
+                shops_id = #{shopsId},
+            </if>
+            <if test="discountFlag != null">
+                discount_flag = #{discountFlag},
+            </if>
+            <if test="tjstatus != null">
+                tjstatus = #{tjstatus},
+            </if>
+            <if test="flag != null">
+                flag = #{flag},
+            </if>
+            <if test="typePpid != null">
+                type_ppid = #{typePpid},
+            </if>
+            <if test="buyNumber != null">
+                buy_number = #{buyNumber},
+            </if>
+            <if test="content != null">
+                content = #{content},
+            </if>
+            <if test="netweight != null">
+                netWeight = #{netweight},
+            </if>
+            <if test="grossweight != null">
+                grossWeight = #{grossweight},
+            </if>
+            <if test="productsimple != null and productsimple != ''">
+                productSimple = #{productsimple},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from db2020.stock where id = #{id}
+    </delete>
+
+</mapper>

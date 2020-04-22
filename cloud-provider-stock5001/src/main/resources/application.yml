@@ -1,0 +1,63 @@
+server:
+  port: 5001
+spring:
+  application:
+    name: cloud-stock-service
+  datasource:
+    # 当前数据源操作类型
+    type: com.alibaba.druid.pool.DruidDataSource
+    # mysql驱动类
+    driver-class-name: org.gjt.mm.mysql.Driver
+    url: jdbc:mysql://localhost:3306/db2020?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT%2B8
+    username: root
+    password: root
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+  redis:
+    # redis数据库索引(默认为0)，我们使用索引为3的数据库，避免和其他数据库冲突
+    database: 0
+    # redis服务器地址（默认为loaclhost）
+    host: 127.0.0.1
+    # redis端口（默认为6379）
+    post: 6379
+    # redis访问密码（默认为空）
+    password:
+    # redis连接超时时间（单位毫秒）
+    timeout: 10000ms
+    # redis连接池配置
+    jedis:
+      pool:
+        max-active: 32  # 最大可用连接数（默认为8，负数表示无限）
+        max-idle: 32 # 最大空闲连接数（默认为8，负数表示无限）
+        min-idle: 0  # 最小空闲连接数（默认为0，该值只有为正数才有用）
+        max-wait: 10000ms # 从连接池中获取连接最大等待时间（默认为-1，单位为毫秒，负数表示无限）
+  # zipkin/sleuth链路跟踪
+#  zipkin:
+#    base-url: http://localhost:9411
+#  sleuth:
+#    sampler:
+#      # 采样值介于0到1之间,1表示全部采集
+#      probability: 1
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      # defaultZone: http://localhost:7001/eureka
+      # 集群版
+      defaultZone: http://eureka7002:7002/eureka,http://eureka7003:7003/eureka
+  instance:
+    instance-id: stock-server-5001
+    # 访问路径可以显示ip地址
+    prefer-ip-address: true
+
+hystrix:
+  command:
+    userGetKey:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000
