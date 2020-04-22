@@ -1,0 +1,9 @@
+server:
+  port: 9527
+spring:
+  cloud:
+    config:
+      label: master
+      name: getway
+      profile: dev
+      uri: http://localhost3344
