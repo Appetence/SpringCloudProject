@@ -12,6 +12,15 @@ spring:
             - SpringCloudProject
       label: master   #主分支
       #读取时候规则/{lable}-{name}-{profiles}.yml
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+    #  消息发送到交换机确认机制,是否确认回调
+    publisher-confirm-type: correlated
+    #  消息发送到交换机确认机制,是否返回回馈
+    publisher-returns: true
 eureka:
   client:
     register-with-eureka: false
@@ -24,3 +33,12 @@ eureka:
     instance-id: cloud-config-server2233
     # 访问路径可以显示ip地址
     prefer-ip-address: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "bus-refresh"  #暴露监控端口，可以配置/health等，这里是*，代表全部
+#访问指定url请求成功  curl -X POST "http://localhost:2233/actuator/bus-refresh"
+#指定通知某一个微服务：curl -X POST "http://localhost:2233/actuator/bus-refresh/{destination}"
+#curl -X POST http://localhost:2233/actuator/bus-refresh/cloud-getway:3306
+#默认监听同一个topic  springCloudBus

@@ -9,36 +9,29 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>cloud-config-server-3344</artifactId>
+    <artifactId>cloud-stream-rabbitmq-consumer8803</artifactId>
+
 
     <dependencies>
-        <!--消息通知 bus ,由于微服务节点功能单一性原则，仅仅在服务端利用bus发送请求通知客户端即可- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-bus -->
+
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-bus-amqp</artifactId>
-        </dependency>
-        <!--config https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-config-server -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-config-server</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
-        </dependency>
-         <dependency>
-             <groupId>org.springframework.boot</groupId>
-             <artifactId>spring-boot-starter-web</artifactId>
-         </dependency>
-        <!--eureka client-->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <!--监控-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <!--eureka client-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+        <!--   消息总线  https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-stream-rabbit -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-stream-rabbit</artifactId>
         </dependency>
         <!--热部署-->
         <dependency>
@@ -52,9 +45,10 @@
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
-
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
-
-
-
 </project>

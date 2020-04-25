@@ -1,0 +1,39 @@
+server:
+  port: 8802
+spring:
+  application:
+    name: cloud-provide-stream
+  profiles:
+    active: default
+  cloud:
+    stream:
+      binders:  #配置rabbitmq的服务信息
+        defaultRabbit: #表示定义的名称，用于binding的整合
+          type: rabbit   #消息组件类型
+          environment:  #相关环境配置
+            spring:
+              rabbitmq:
+                host: localhost
+                port: 5672
+                username: guest
+                password: guest
+      bindings:    #服务整合处理
+        input:
+          destination: packetUplinkTopics   #表示要使用的exchenge名称定义
+          content-type: application/json   #设置消息类型，本次为json,文本则为设置"text/plain"
+          binder: defaultRabbit   #要绑定的消息服务的具体设置
+          group: ${spring.application.name}   #分组，同一个组呢消息只会被消费一次，不同组内消息会被重复消费，分组了，消息会持久化，未分组消息不会持久化
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: false
+    service-url:
+      # defaultZone: http://localhost:7001/eureka
+      # 集群版
+      defaultZone: http://eureka7002:7002/eureka,http://eureka7003:7003/eureka
+  instance:
+    instance-id: cloud-provide-stream-8803
+    # 访问路径可以显示ip地址
+    prefer-ip-address: true
+    lease-expiration-duration-in-seconds: 30   #设置默认时间间隔
+    lease-renewal-interval-in-seconds: 90  #超过时间间隔作启动服务保护
