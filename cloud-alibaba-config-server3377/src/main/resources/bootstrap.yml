@@ -1,0 +1,25 @@
+server:
+  port: 3377
+spring:
+  application:
+    name: cloud-alibaba-config-client
+  zipkin:
+    base-url: http://localhost:9411/
+    sleuth:
+      sampler:
+        percentage: 1
+  cloud:
+    nacos:
+      discovery:
+        #服务注册中心地址
+        server-addr: 127.0.0.1:8848
+      config:
+        #服务配置中心地址
+        server-addr: 127.0.0.1:8848
+        #指定后缀名为yaml格式的配置
+        file-extension: yaml
+        namespace: dev
+        group: TEST_GROUP
+logging:
+  level:
+    com.netflix: warn

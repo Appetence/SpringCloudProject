@@ -12,6 +12,11 @@
     <artifactId>cloud-consumer-hystrix-order8001</artifactId>
 
     <dependencies>
+        <!--包含sleuth和zipkin-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-zipkin</artifactId>
+        </dependency>
         <!--降级-->
         <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-netflix-hystrix -->
         <dependency>

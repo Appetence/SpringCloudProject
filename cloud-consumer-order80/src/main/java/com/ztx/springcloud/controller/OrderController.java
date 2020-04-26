@@ -45,7 +45,7 @@ public class OrderController {
     @RequestMapping("getPaymentById/get/{id}")
     public CommentResult<Payment> getPaymentById(@PathVariable(name = "id") Long id) {
         log.info("进来啦getPaymentById：{}", id);
-        return restTemplate.getForObject(PAYMENT_URL + "/payment/getPaymentById/get/" + id, CommentResult.class);
+        return restTemplate.getForObject(PAYMENT_URL + "/getPaymentById/get/" + id, CommentResult.class);
     }
 
     @RequestMapping("/getDiscovery")

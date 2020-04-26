@@ -6,7 +6,6 @@ import com.ztx.springcloud.entities.CommentResult;
 import com.ztx.springcloud.entities.Payment;
 import com.ztx.springcloud.service.PaymentService;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.ThreadUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 

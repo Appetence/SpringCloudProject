@@ -1,0 +1,6 @@
+spring:
+  profiles:
+    #active: dev
+    #active: test
+    active: info
+    #${spring.application.name}-${profile}. ${file-extension:properties},读取配置规则

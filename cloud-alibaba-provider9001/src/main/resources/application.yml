@@ -1,0 +1,23 @@
+server:
+  port: 9001
+spring:
+  application:
+    name: cloud-alibaba-provider-service
+  zipkin:
+    base-url: http://localhost:9411/
+    sleuth:
+      sampler:
+        percentage: 1
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+logging:
+  level:
+    com.netflix: warn
+management:
+  endpoints:
+    web:
+      exposure:
+        #监控端口全部暴露
+        include: "*"
