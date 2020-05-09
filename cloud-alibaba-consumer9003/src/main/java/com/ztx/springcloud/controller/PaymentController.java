@@ -1,5 +1,6 @@
 package com.ztx.springcloud.controller;
 
+import com.ztx.springcloud.config.ProvideService;
 import com.ztx.springcloud.entities.CommentResult;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
@@ -17,10 +18,18 @@ public class PaymentController {
     private String port;
     @Resource
     private RestTemplate restTemplate;
+    @Resource
+    private ProvideService provideService;
+
     @RequestMapping("getPort")
     public CommentResult<String> getPort(){
         System.out.println(SERVER_URI);
         CommentResult<String> commentResult = restTemplate.getForObject(SERVER_URI+"getPort",CommentResult.class);
         return commentResult;
+    }
+    @RequestMapping("getPorts")
+    public CommentResult<String> getPortOpenFegin(){
+        System.out.println("进来啦9003");
+        return provideService.getPort();
     }
 }

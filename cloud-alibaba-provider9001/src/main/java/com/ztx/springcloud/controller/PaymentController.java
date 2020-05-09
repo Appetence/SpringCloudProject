@@ -12,6 +12,6 @@ public class PaymentController {
     private String port;
     @RequestMapping("getPort")
     public CommentResult<String> getPort(){
-        return new CommentResult<>(200,"成功了",port);
+        System.out.println("进来啦");return new CommentResult<>(200,"成功了",port);
     }
 }

@@ -12,8 +12,25 @@ spring:
     nacos:
       discovery:
         server-addr: 127.0.0.1:8848
+    sentinel:
+      #懒加载。访问一次查询到信息
+      transport:
+        dashboard: 127.0.0.1:8080
+        #默认的端口号是8719,如果被占用了默认加一，直到找到可用的端口号
+        port: 8719
+      datasource:
+        ds1:
+          nacos:
+            server-addr: 127.0.0.1:8848
+            dataId: ${spring.application.name}-sentinel
+            groupId: DEFAULT_GROUP
+            data-type: json
+            rule-type: flow
 service-uri:
   nacos-user-server: http://cloud-alibaba-provider-service/
+fegin:
+  sentinel:
+    enable: true
 logging:
   level:
     com.netflix: warn

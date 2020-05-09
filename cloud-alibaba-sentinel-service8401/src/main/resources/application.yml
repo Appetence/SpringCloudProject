@@ -1,0 +1,32 @@
+server:
+  port: 8401
+spring:
+  application:
+    name: cloud-alibaba-sentinal-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8851
+    sentinel:
+      #lanjiazai  jizhi   fangweng yici houcaike chaxundao
+      transport:
+        dashboard: 127.0.0.1:8080
+        #默认的端口号是8719,如果被占用了默认加一，直到找到可用的端口号
+        port: 8719
+      datasource:
+        ds1:
+          nacos:
+            server-addr: 127.0.0.1:8851
+            dataId: cloudalibaba-sentinel-server
+            groupId: DEFAULT_GROUP
+            data-type: json
+            rule-type: flow
+fegin:
+  sentinel:
+    enable: true
+management:
+  endpoints:
+    web:
+      exposure:
+        #监控端口全部暴露
+        include: "*"
