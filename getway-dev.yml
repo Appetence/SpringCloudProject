@@ -1,6 +1,17 @@
+server:
+  port: 9527
 spring:
   application:
     name: cloud-getway
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+    #  消息发送到交换机确认机制,是否确认回调
+    publisher-confirm-type: correlated
+    #  消息发送到交换机确认机制,是否返回回馈
+    publisher-returns: true
   cloud:
     gateway:
       routes:
